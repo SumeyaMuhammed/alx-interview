@@ -4,24 +4,20 @@
 
 Write a method that determines if all the boxes can be opened.'''
 
-from collections import deque
 def canUnlockAll(boxes):
-    queue = deque(boxes)
-    firstKeyList = queue.popleft()
-    innerqueue = deque(firstKeyList)
-    unlocked = set()
-    if len(innerqueue) == 0:
-        return False
-    else:
-        for _ in range(len(innerqueue)):
-            firstKey = innerqueue.popleft()
-            unlocked.add(firstKey)
-            print(firstKey)
-            print(innerqueue)
-    print(queue)
-    print(unlocked)
-        
+    # Create a set to keep track of the boxes we have unlocked
+    unlocked = set([0])  # Start with box 0 already unlocked
+    keys = [0]  # Start with the first box
 
+    while keys:
+        current_key = keys.pop()  # Get the next box to unlock
+        for key in boxes[current_key]:
+            if key not in unlocked and key < len(boxes):
+                unlocked.add(key)  # Mark the box as unlocked
+                keys.append(key)   # Add the key to our list of keys to explore
+
+    # If the number of unlocked boxes matches the total number of boxes, return True
+    return len(unlocked) == len(boxes)
 
 
 boxes = [[1,2,2], [3,4,5]]
