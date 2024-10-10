@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
-'''You have n number of locked boxes in front of you. Each box is numbered sequentially from 0 to n - 1 and each box may contain keys to the other boxes.
+#You have n number of locked boxes in front of you. 
+# Each box is numbered sequentially from 0 to n - 1 and each box may contain keys to the other boxes.
 
-Write a method that determines if all the boxes can be opened.'''
+#Write a method that determines if all the boxes can be opened.
 
 def canUnlockAll(boxes):
     # Create a set to keep track of the boxes we have unlocked
@@ -18,7 +19,3 @@ def canUnlockAll(boxes):
 
     # If the number of unlocked boxes matches the total number of boxes, return True
     return len(unlocked) == len(boxes)
-
-
-boxes = [[1,2,2], [3,4,5]]
-canUnlockAll(boxes)
