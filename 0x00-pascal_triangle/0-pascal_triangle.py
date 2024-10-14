@@ -18,3 +18,15 @@ def pascal_triangle(n):
                 C = C * (i - j) // j
             res.append(level)
     return res
+
+print(pascal_triangle(5))
+
+def pascal_triangle(n):
+    pasc = []
+    if n <= 0:
+        return pasc
+    else:
+        each = []
+        for i in range(1, n):
+            each.append(i)
+            
